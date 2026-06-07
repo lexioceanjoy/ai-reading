@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Lexi's AI Reading</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0e0e0e;
+    --surface: #161616;
+    --border: rgba(255,255,255,0.07);
+    --border-hover: rgba(255,255,255,0.18);
+    --text: #f0ede8;
+    --muted: rgba(240,237,232,0.4);
+    --faint: rgba(240,237,232,0.12);
+    --accent-purple: #c4b5f4;
+    --accent-teal: #5fcfb0;
+    --accent-amber: #f5c26b;
+    --accent-blue: #7eb8f7;
+    --accent-coral: #f4957a;
+    --accent-green: #8fd18a;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    padding: 2rem 1.25rem 4rem;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  header {
+    padding: 2.5rem 0 2.5rem;
+    border-bottom: 0.5px solid var(--border);
+    margin-bottom: 2.5rem;
+  }
+
+  .date {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  h1 {
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  h1 span {
+    color: var(--muted);
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.875rem;
+    padding-left: 2px;
+  }
+
+  .group {
+    margin-bottom: 2.25rem;
+  }
+
+  .card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 1rem 1.125rem;
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 8px;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .card:hover {
+    border-color: var(--border-hover);
+    background: #1c1c1c;
+  }
+
+  .card:hover::before {
+    opacity: 1;
+  }
+
+  .dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 400;
+    background: var(--faint);
+    color: var(--accent);
+    border: 0.5px solid var(--accent-faint, rgba(255,255,255,0.1));
+    margin-top: 1px;
+  }
+
+  .card-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .card-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 3px;
+    line-height: 1.3;
+  }
+
+  .card-desc {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .arrow {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 2px;
+    flex-shrink: 0;
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  .card:hover .arrow {
+    color: var(--accent);
+    transform: translateX(2px);
+  }
+
+  .footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--border);
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .footer strong {
+    color: rgba(240,237,232,0.6);
+    font-weight: 400;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="date" id="date-display"></div>
+  <h1>Reading time.<br><span>Go deep, not wide.</span></h1>
+</header>
+
+<div class="group">
+  <div class="section-label">Trust completely</div>
+
+  <a href="https://lilianweng.github.io" target="_blank" class="card" style="--accent: var(--accent-purple);">
+    <div class="dot" style="color: var(--accent-purple);">LW</div>
+    <div class="card-body">
+      <div class="card-name">Lilian Weng</div>
+      <div class="card-desc">Clearest writing on agent architectures. Read to understand why patterns exist — not just what they are.</div>
+    </div>
+    <div class="arrow">↗</div>
+  </a>
+
+  <a href="https://www.anthropic.com/research" target="_blank" class="card" style="--accent: var(--accent-teal);">
+    <div class="dot" style="color: var(--accent-teal);">AN</div>
+    <div class="card-body">
+      <div class="card-name">Anthropic Research</div>
+      <div class="card-desc">Primary source. How the people building frontier models actually think about agents, safety, and capability.</div>
+    </div>
+    <div class="arrow">↗</div>
+  </a>
+
+  <a href="https://simonwillison.net" target="_blank" class="card" style="--accent: var(--accent-blue);">
+    <div class="dot" style="color: var(--accent-blue);">SW</div>
+    <div class="card-body">
+      <div class="card-name">Simon Willison</div>
+      <div class="card-desc">Best practitioner writing on what actually works. No hype, just honest observations from someone who ships.</div>
+    </div>
+    <div class="arrow">↗</div>
+  </a>
+</div>
+
+<div class="group">
+  <div class="section-label">Selectively useful</div>
+
+  <a href="https://www.youtube.com/@AndrejKarpathy" target="_blank" class="card" style="--accent: var(--accent-amber);">
+    <div class="dot" style="color: var(--accent-amber);">AK</div>
+    <div class="card-body">
+      <div class="card-name">Andrej Karpathy</div>
+      <div class="card-desc">Trust his mental models and conceptual framing. Be more skeptical on specific tool opinions.</div>
+    </div>
+    <div class="arrow">↗</div>
+  </a>
+
+  <a href="https://www.oneusefulthing.org" target="_blank" class="card" style="--accent: var(--accent-coral);">
+    <div class="dot" style="color: var(--accent-coral);">EM</div>
+    <div class="card-body">
+      <div class="card-name">Ethan Mollick — One Useful Thing</div>
+      <div class="card-desc">Good on real-world implications and use cases. Weaker on technical depth — read for the so-what, not the how.</div>
+    </div>
+    <div class="arrow">↗</div>
+  </a>
+
+  <a href="https://eugeneyan.com/writing" target="_blank" class="card" style="--accent: var(--accent-green);">
+    <div class="dot" style="color: var(--accent-green);">EY</div>
+    <div class="card-body">
+      <div class="card-name">Eugene Yan</div>
+      <div class="card-desc">Writes from actually shipping ML systems. Grounded, pattern-focused, no performance.</div>
+    </div>
+    <div class="arrow">↗</div>
+  </a>
+</div>
+
+<div class="footer">
+  <strong>Skip entirely:</strong> Rundown AI, most AI newsletters, general Twitter discourse.<br>
+  Optimized for open rates, not understanding.
+</div>
+
+<script>
+  const d = new Date();
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  document.getElementById('date-display').textContent =
+    days[d.getDay()] + ' · ' + months[d.getMonth()] + ' ' + d.getDate() + ' · ' + d.getFullYear();
+</script>
+
+</body>
+</html>
