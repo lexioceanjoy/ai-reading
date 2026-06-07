@@ -1,67 +1,72 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2487.7">
-  <style type="text/css">
-    body {background-color: #0b0b0b}
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #e7e4db; color: rgba(231, 228, 219, 0.4); -webkit-text-stroke: rgba(231, 228, 219, 0.4); min-height: 12.0px}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.0px 'Helvetica Neue'; color: #e7e4db; color: rgba(231, 228, 219, 0.4); -webkit-text-stroke: rgba(231, 228, 219, 0.4)}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #0000e9; -webkit-text-stroke: #a88eed}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #0000e9; -webkit-text-stroke: #e7e4db}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.5px 'Helvetica Neue'; color: #0000e9; -webkit-text-stroke: rgba(231, 228, 219, 0.4)}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'PingFang SC'; color: #0000e9; -webkit-text-stroke: rgba(231, 228, 219, 0.4)}
-    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #0000e9; -webkit-text-stroke: #45be8f}
-    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #0000e9; -webkit-text-stroke: #5a95f2}
-    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #0000e9; -webkit-text-stroke: #eca848}
-    p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #0000e9; -webkit-text-stroke: #e96b55}
-    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #0000e9; -webkit-text-stroke: #6fc264}
-    span.s1 {font-kerning: none}
-    span.s2 {font-kerning: none; color: #e7e4db; -webkit-text-stroke: 0px #e7e4db}
-    span.s3 {text-decoration: underline ; font-kerning: none; background-color: rgba(231, 228, 219, 0.12)}
-    span.s4 {text-decoration: underline ; font-kerning: none}
-    span.s5 {text-decoration: underline ; font-kerning: none; background-color: #0e0e0e}
-    span.s6 {font: 12.5px 'Helvetica Neue'; text-decoration: underline ; font-kerning: none; -webkit-text-stroke: 0px rgba(231, 228, 219, 0.4)}
-    span.s7 {font: 14.0px 'PingFang SC'; text-decoration: underline ; font-kerning: none; -webkit-text-stroke: 0px rgba(231, 228, 219, 0.4)}
-    span.s8 {text-decoration: underline ; font-kerning: none; -webkit-text-stroke: 0px #45be8f}
-    span.s9 {text-decoration: underline ; font-kerning: none; -webkit-text-stroke: 0px #5a95f2}
-    span.s10 {text-decoration: underline ; font-kerning: none; -webkit-text-stroke: 0px #eca848}
-    span.s11 {text-decoration: underline ; font-kerning: none; -webkit-text-stroke: 0px #e96b55}
-    span.s12 {text-decoration: underline ; font-kerning: none; -webkit-text-stroke: 0px #6fc264}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lexi's AI Reading</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0e0e0e;--surface:#161616;--border:rgba(255,255,255,0.07);--border-hover:rgba(255,255,255,0.18);--text:#f0ede8;--muted:rgba(240,237,232,0.4);--faint:rgba(240,237,232,0.12);--accent-purple:#c4b5f4;--accent-teal:#5fcfb0;--accent-amber:#f5c26b;--accent-blue:#7eb8f7;--accent-coral:#f4957a;--accent-green:#8fd18a}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;min-height:100vh;padding:2rem 1.25rem 4rem;max-width:520px;margin:0 auto}
+header{padding:2.5rem 0;border-bottom:0.5px solid var(--border);margin-bottom:2.5rem}
+.date{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.6rem}
+h1{font-size:22px;font-weight:400;line-height:1.3}
+h1 span{color:var(--muted)}
+.section-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.875rem;padding-left:2px}
+.group{margin-bottom:2.25rem}
+.card{display:flex;align-items:flex-start;gap:14px;padding:1rem 1.125rem;background:var(--surface);border:0.5px solid var(--border);border-radius:12px;text-decoration:none;color:inherit;margin-bottom:8px;transition:border-color .2s,background .2s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--accent);opacity:0;transition:opacity .2s}
+.card:hover{border-color:var(--border-hover);background:#1c1c1c}
+.card:hover::before{opacity:1}
+.dot{width:32px;height:32px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:11px;background:var(--faint);color:var(--accent);margin-top:1px}
+.card-body{flex:1;min-width:0}
+.card-name{font-size:14px;font-weight:500;margin-bottom:3px;line-height:1.3}
+.card-desc{font-size:12.5px;color:var(--muted);line-height:1.5}
+.arrow{font-size:14px;color:var(--muted);margin-top:2px;flex-shrink:0;transition:color .2s,transform .2s}
+.card:hover .arrow{color:var(--accent);transform:translateX(2px)}
+</style>
 </head>
 <body>
-<p class="p1"><span class="s1"></span><br></p>
-<h1 style="margin: 0.0px 0.0px 0.0px 0.0px; font: 22.0px 'Helvetica Neue'; color: #e7e4db; color: rgba(231, 228, 219, 0.4); -webkit-text-stroke: rgba(231, 228, 219, 0.4)"><span class="s2">Reading time.<br>
-</span><span class="s1">Go deep, not wide.</span></h1>
-<p class="p3"><span class="s1">TRUST COMPLETELY</span></p>
-<p class="p4"><span class="s3"><a href="https://lilianweng.github.io/">LW<span class="s4"></span></a></span></p>
-<p class="p5"><span class="s5"><a href="https://lilianweng.github.io/">Lilian Weng<span class="s4"></span></a></span></p>
-<p class="p6"><span class="s5"><a href="https://lilianweng.github.io/">Clearest writing on agent architectures. Read to understand why patterns exist — not just what they are.<span class="s6"></span></a></span></p>
-<p class="p7"><span class="s5"><a href="https://lilianweng.github.io/">↗<span class="s7"></span></a></span></p>
-<p class="p8"><span class="s3"><a href="https://www.anthropic.com/research">AN<span class="s8"></span></a></span></p>
-<p class="p5"><span class="s5"><a href="https://www.anthropic.com/research">Anthropic Research<span class="s4"></span></a></span></p>
-<p class="p6"><span class="s5"><a href="https://www.anthropic.com/research">Primary source. How the people building frontier models actually think about agents, safety, and capability.<span class="s6"></span></a></span></p>
-<p class="p7"><span class="s5"><a href="https://www.anthropic.com/research">↗<span class="s7"></span></a></span></p>
-<p class="p9"><span class="s3"><a href="https://simonwillison.net/">SW<span class="s9"></span></a></span></p>
-<p class="p5"><span class="s5"><a href="https://simonwillison.net/">Simon Willison<span class="s4"></span></a></span></p>
-<p class="p6"><span class="s5"><a href="https://simonwillison.net/">Best practitioner writing on what actually works. No hype, just honest observations from someone who ships.<span class="s6"></span></a></span></p>
-<p class="p7"><span class="s5"><a href="https://simonwillison.net/">↗<span class="s7"></span></a></span></p>
-<p class="p3"><span class="s1">SELECTIVELY USEFUL</span></p>
-<p class="p10"><span class="s3"><a href="https://www.youtube.com/@AndrejKarpathy">AK<span class="s10"></span></a></span></p>
-<p class="p5"><span class="s5"><a href="https://www.youtube.com/@AndrejKarpathy">Andrej Karpathy<span class="s4"></span></a></span></p>
-<p class="p6"><span class="s5"><a href="https://www.youtube.com/@AndrejKarpathy">Trust his mental models and conceptual framing. .<span class="s6"></span></a></span></p>
-<p class="p7"><span class="s5"><a href="https://www.youtube.com/@AndrejKarpathy">↗<span class="s7"></span></a></span></p>
-<p class="p11"><span class="s3"><a href="https://www.oneusefulthing.org/">EM<span class="s11"></span></a></span></p>
-<p class="p5"><span class="s5"><a href="https://www.oneusefulthing.org/">Ethan Mollick — One Useful Thing<span class="s4"></span></a></span></p>
-<p class="p6"><span class="s5"><a href="https://www.oneusefulthing.org/">Good on real-world implications and use cases. Read for the so-what<span class="s6"></span></a></span></p>
-<p class="p7"><span class="s5"><a href="https://www.oneusefulthing.org/">↗<span class="s7"></span></a></span></p>
-<p class="p12"><span class="s3"><a href="https://eugeneyan.com/writing">EY<span class="s12"></span></a></span></p>
-<p class="p5"><span class="s5"><a href="https://eugeneyan.com/writing">Eugene Yan<span class="s4"></span></a></span></p>
-<p class="p6"><span class="s5"><a href="https://eugeneyan.com/writing">Writes from actually shipping ML systems. Grounded, pattern-focused, no performance.<span class="s6"></span></a></span></p>
-<p class="p7"><span class="s5"><a href="https://eugeneyan.com/writing">↗<span class="s7"></span></a></span></p>
+<header>
+<div class="date" id="date-display"></div>
+<h1>Reading time.<br><span>Go deep, not wide.</span></h1>
+</header>
+<div class="group">
+<div class="section-label">Trust completely</div>
+<a href="https://lilianweng.github.io" target="_blank" class="card" style="--accent:var(--accent-purple)">
+<div class="dot" style="color:var(--accent-purple)">LW</div>
+<div class="card-body"><div class="card-name">Lilian Weng</div><div class="card-desc">Clearest writing on agent architectures. Read to understand why patterns exist, not just what they are.</div></div>
+<div class="arrow">↗</div></a>
+<a href="https://www.anthropic.com/research" target="_blank" class="card" style="--accent:var(--accent-teal)">
+<div class="dot" style="color:var(--accent-teal)">AN</div>
+<div class="card-body"><div class="card-name">Anthropic Research</div><div class="card-desc">Primary source. How the people building frontier models actually think about agents, safety, and capability.</div></div>
+<div class="arrow">↗</div></a>
+<a href="https://simonwillison.net" target="_blank" class="card" style="--accent:var(--accent-blue)">
+<div class="dot" style="color:var(--accent-blue)">SW</div>
+<div class="card-body"><div class="card-name">Simon Willison</div><div class="card-desc">Best practitioner writing on what actually works. No hype, just honest observations from someone who ships.</div></div>
+<div class="arrow">↗</div></a>
+</div>
+<div class="group">
+<div class="section-label">Selectively useful</div>
+<a href="https://www.youtube.com/@AndrejKarpathy" target="_blank" class="card" style="--accent:var(--accent-amber)">
+<div class="dot" style="color:var(--accent-amber)">AK</div>
+<div class="card-body"><div class="card-name">Andrej Karpathy</div><div class="card-desc">Read for his mental models and conceptual framing. </div></div>
+<div class="arrow">↗</div></a>
+<a href="https://www.oneusefulthing.org" target="_blank" class="card" style="--accent:var(--accent-coral)">
+<div class="dot" style="color:var(--accent-coral)">EM</div>
+<div class="card-body"><div class="card-name">Ethan Mollick — One Useful Thing</div><div class="card-desc">Good on real-world implications. Read for the so-what</div></div>
+<div class="arrow">↗</div></a>
+<a href="https://eugeneyan.com/writing" target="_blank" class="card" style="--accent:var(--accent-green)">
+<div class="dot" style="color:var(--accent-green)">EY</div>
+<div class="card-body"><div class="card-name">Eugene Yan</div><div class="card-desc">Writes from actually shipping ML systems. Grounded, pattern-focused, no performance.</div></div>
+<div class="arrow">↗</div></a>
+</div>
+<script>
+const d=new Date();
+const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+document.getElementById('date-display').textContent=days[d.getDay()]+' · '+months[d.getMonth()]+' '+d.getDate()+' · '+d.getFullYear();
+</script>
 </body>
 </html>
